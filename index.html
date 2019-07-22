@@ -14,6 +14,8 @@
             <!--- <span v-on:mousemove="dummy">DEAD SPOT</span>-->
             - <span v-on:mousemove.stop.prevent="">DEAD SPOT</span>
         </p>
+        <!--<input type="text" v-on:keyup="alertMe">-->
+        <input type="text" v-on:keyup.enter.space="alertMe">
     </div>
     <script src="app.js" type="text/javascript" charset="utf-8"></script>
 </body>
