@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="vue.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
 </head>
 <body>
     <div id="app">
-        <button @click="changeLink">Click to Change Link</button>
-        <a :href="link">Link</a>
+        <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
+        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo"></div>
     </div>
     <script src="app.js" type="text/javascript" charset="utf-8"></script>
 </body>
