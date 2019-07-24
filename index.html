@@ -10,6 +10,11 @@
         <ul>
             <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
         </ul>
+        <hr>
+            <li v-for="person in persons">
+                <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div>
+            </li>
+        <hr>
         <template v-for="(ingredient, index) in ingredients">
             <h1>{{ ingredient }}</h1>
             <p>{{ index }}</p>
