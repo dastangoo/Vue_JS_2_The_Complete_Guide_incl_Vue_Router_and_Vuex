@@ -3,7 +3,6 @@ var data = {
     showParagraph: false
 }
 var vm1 = new Vue({
-    el: '#app1',
     data: data,
     methods: {
         show: function() {
@@ -29,6 +28,8 @@ var vm1 = new Vue({
     }
 });
 
+vm1.$mount('#app1');
+
 console.log(vm1);
 console.log(vm1.title);
 console.log(vm1.$data.title);
@@ -52,3 +53,10 @@ var vm2 = new Vue({
         }
     }
 });
+
+var vm3 = new Vue({
+    template: '<h1>Hello!</h1>'
+});
+
+vm3.$mount();
+document.getElementById('app3').appendChild(vm3.$el);
