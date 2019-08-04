@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ switchName() }}</p>
+        <button @click="resetName">Reset Name</button>
     </div>
 </template>
 
@@ -10,13 +11,16 @@
     export default {
         props: {
             myName: {
-                type: Object,
-                default: 'Max'
+                type: String
             }
         },
         methods: {
             switchName() {
                 return this.myName.split("").reverse().join("");
+            },
+            resetName() {
+                this.myName = 'Jack';
+                this.$emit('nameWasReset', this.myName);
             }
         }
     }
