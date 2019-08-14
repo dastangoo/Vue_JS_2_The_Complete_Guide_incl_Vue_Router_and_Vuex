@@ -11,6 +11,7 @@
 
 <script>
     import { eventBus } from '../main';
+
     export default {
         props: {
             myName: {
@@ -24,7 +25,7 @@
                 return this.myName.split("").reverse().join("");
             },
             resetName() {
-                this.myName = 'Jack';
+                this.myName = 'Max';
                 this.$emit('nameWasReset', this.myName);
             }
         },
