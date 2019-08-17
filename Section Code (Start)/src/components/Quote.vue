@@ -16,4 +16,8 @@
         padding: 30px;
         margin: auto;
     }
+
+    h2 {
+        color: red;
+    }
 </style>
