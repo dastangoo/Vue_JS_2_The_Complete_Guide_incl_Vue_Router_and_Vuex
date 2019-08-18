@@ -37,7 +37,7 @@
             appQuote: Quote,
             appAuthor: Author,
             appNew: New
-        }        
+        }
     }
 </script>
 
