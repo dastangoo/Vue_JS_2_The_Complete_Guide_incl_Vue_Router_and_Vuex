@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        data: function() {
+        data: function () {
             return {
                 counter: 0
             };
@@ -16,11 +16,11 @@
         destroyed() {
             console.log('Destroyed!');
         },
-        activated() {
-            console.log('Activated!');
-        },
         deactivated() {
             console.log('Deactivated!');
+        },
+        activated() {
+            console.log('Activated!');
         }
     }
 </script>

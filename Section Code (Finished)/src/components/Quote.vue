@@ -7,7 +7,7 @@
         <hr>
         <div>
             <slot></slot>
-        </div>  
+        </div>
     </div>
 </template>
 
@@ -21,7 +21,8 @@
         border: 1px solid #ccc;
         box-shadow: 1px 1px 2px black;
         padding: 30px;
-        margin: auto;
+        margin: 30px auto;
+        text-align: center;
     }
 
     h2 {

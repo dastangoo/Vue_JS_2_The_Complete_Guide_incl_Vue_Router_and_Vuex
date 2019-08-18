@@ -15,7 +15,7 @@
                 <!--<app-quote>-->
                     <!--<h2 slot="title">{{ quoteTitle }}</h2>-->
                     <!--<p>A wonderful Quote</p>-->
-                <!--</app-quote>               -->
+                <!--</app-quote>-->
             </div>
         </div>
     </div>
