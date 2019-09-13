@@ -15,7 +15,7 @@
     export default {
         props: ['value'],
         methods: {
-            switched (isOn) {
+            switched(isOn) {
                 this.$emit('input', isOn);
             }
         }
