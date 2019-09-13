@@ -10,26 +10,21 @@
                         <input
                                 type="text"
                                 id="email"
-                                class="form-control"
-                                :value="userData.email"
-                                @input="userData.email = $event.target.value">
+                                class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input
                                 type="password"
                                 id="password"
-                                class="form-control"
-                                v-model.lazy="userData.password">
-                        <div>{{ userData.password }}</div>
+                                class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
                         <input
                                 type="number"
                                 id="age"
-                                class="form-control"
-                                v-model="userData.age">
+                                class="form-control">
                     </div>
 
                 </div>
@@ -41,8 +36,7 @@
                     <textarea
                             id="message"
                             rows="5"
-                            class="form-control"
-                            v-model="message"></textarea>
+                            class="form-control"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -52,15 +46,13 @@
                             <input
                                     type="checkbox"
                                     id="sendmail"
-                                    value="SendMail"
-                                    v-model="sendMail"> Send Mail
+                                    value="SendMail"> Send Mail
                         </label>
                         <label for="sendInfomail">
                             <input
                                     type="checkbox"
                                     id="sendInfomail"
-                                    value="SendInfoMail"
-                                    v-model="sendMail"> Send Infomail
+                                    value="SendInfoMail"> Send Infomail
                         </label>
                     </div>
 
@@ -72,15 +64,13 @@
                         <input
                                 type="radio"
                                 id="male"
-                                value="Male"
-                                v-model="gender"> Male
+                                value="Male"> Male
                     </label>
                     <label for="female">
                         <input
                                 type="radio"
                                 id="female"
-                                value="Female"
-                                v-model="gender"> Female
+                                value="Female"> Female
                     </label>
                 </div>
             </div>
@@ -89,10 +79,14 @@
                     <label for="priority">Priority</label>
                     <select
                             id="priority"
-                            class="form-control"
-                            v-model="selectedPriority">
-                        <option v-for="priority in priorities">{{ priority }}</option>
+                            class="form-control">
+                        <option></option>
                     </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <app-switch v-model="dataSwitch"></app-switch>
                 </div>
             </div>
             <hr>
@@ -115,13 +109,14 @@
                         <p>Mail: {{ userData.email }}</p>
                         <p>Password: {{ userData.password }}</p>
                         <p>Age: {{ userData.age }}</p>
-                        <p style="white-space: pre">Message: {{ message }}</p>
-                        <p><strong>Send Mail?</strong></p>
+                        <p>Message: {{ message }}</p>
+                        <p style="white-space: pre"><strong>Send Mail?</strong></p>
                         <ul>
                             <li v-for="item in sendMail">{{ item }}</li>
                         </ul>
                         <p>Gender: {{ gender }}</p>
-                        <p>Priority: {{ selectedPriority }}</p>
+                        <p>Priority: {{ selectdPriority }}</p>
+                        <p>Switched: {{ dataSwitch }}</p>
                     </div>
                 </div>
             </div>
@@ -130,8 +125,9 @@
 </template>
 
 <script>
+    import Switch from './Switch.vue';
     export default {
-        data() {
+        data () {
             return {
                 userData: {
                     email: '',
@@ -142,8 +138,12 @@
                 sendMail: [],
                 gender: 'Male',
                 selectedPriority: 'High',
-                priorities: ['High', 'Medium', 'Low']
+                priorities: ['High', 'Medium', 'Low'],
+                dataSwitch: true
             }
+        },
+        components: {
+            appSwitch: Switch
         }
     }
 </script>
