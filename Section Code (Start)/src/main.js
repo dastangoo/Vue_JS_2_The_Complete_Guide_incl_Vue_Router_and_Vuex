@@ -17,7 +17,6 @@ Vue.directive('highlight', { // v-highlight
                 el.style.color = binding.value;
             }
         }, delay);
-
     }
 }); 
 
