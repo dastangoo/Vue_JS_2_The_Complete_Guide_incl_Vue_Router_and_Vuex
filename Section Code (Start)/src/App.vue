@@ -54,7 +54,7 @@
                         for (let key in data) {
                             resultArray.push(data[key]);
                         }
-                        //this.users = resultArray;
+                        this.users = resultArray;
                     });
             }
         }
