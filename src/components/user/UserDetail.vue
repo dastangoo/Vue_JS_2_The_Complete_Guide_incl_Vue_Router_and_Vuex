@@ -22,8 +22,10 @@
                         q: 100 
                     },
                     hash: '#data'
-            }
-        },
+                }
+            }    
+        }
+        ,
         beforeRouteEnter(to, from, next) {
 
             if(true) {
@@ -38,5 +40,4 @@
             next();
         }
     }
-}
 </script>
