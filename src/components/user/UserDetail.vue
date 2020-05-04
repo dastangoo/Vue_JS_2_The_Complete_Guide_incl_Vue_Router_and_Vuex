@@ -4,7 +4,6 @@
         <p>User loaded has ID: {{ $route.params.id }}</p>
         <router-link 
             tag="button" 
-            :to=""
             class="btn btn-primary">Edit User</router-link>
     </div>
 </template>
@@ -25,4 +24,5 @@
             }
         }
     }
+}
 </script>
