@@ -20,7 +20,8 @@
                     query: { 
                         locale: 'en', 
                         q: 100 
-                    }
+                    },
+                    hash: '#data'
             }
         }
     }
