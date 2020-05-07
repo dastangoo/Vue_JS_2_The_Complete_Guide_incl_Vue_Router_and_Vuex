@@ -6,10 +6,10 @@
 </template>
 
 <script>
-    import { mapMutations } from 'vues';
+    import { mapActions } from 'vues';
     export default {
         methods: {
-            ...mapMutations({
+            ...mapActions({
                 'increment',
                 'decrement'
             })
