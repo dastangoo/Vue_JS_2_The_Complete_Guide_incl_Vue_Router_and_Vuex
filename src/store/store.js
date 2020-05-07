@@ -9,7 +9,10 @@ export const store = new Vuex.store({
     },
     getters: {
         doubleCounter: state => {
-            return stattte.counter * 2 ;
+            return state.counter * 2 ;
+        },
+        stringCounter: state => {
+            return state.counter + ' Clicks';
         }
     }
 });
