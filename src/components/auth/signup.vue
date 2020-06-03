@@ -1,3 +1,4 @@
+B
 <template>
   <div id="signup">
     <div class="signup-form">
@@ -105,7 +106,11 @@
           terms: this.terms
         }
         console.log(formData)
-        axios.post('/users.json', formData)
+        axios.post('/accounts:signUp?key=AIzaSyAZGzlY3Pn7T6Yo7y7SMQn4JQY1d66Hl7Q', {
+            email: formData.email,
+            password: formData.password,
+            returnSecureToken: true
+        })
           .then(res => console.log(res))
           .catch(error => console.log(error))
       }
