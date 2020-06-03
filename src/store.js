@@ -27,9 +27,9 @@ export default new Vuex.Store({
     },
     actions: {
         setLogoutTime({commit}, expirationTime) {
-           setTimeout(() => {
-               commit('clearAuthData');
-           }, expirationTime * 1000);
+            setTimeout(() => {
+                commit('clearAuthData');
+            }, expirationTime * 1000);
         },
         signup ({commit, dispatch}, authData) {
             axios.post('/accounts:signUp?key=AIzaSyAZGzlY3Pn7T6Yo7y7SMQn4JQY1d66Hl7Q', {
@@ -43,6 +43,11 @@ export default new Vuex.Store({
                     token: res.data.idToken,
                     userId: res.data.localId
                 })
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000);
+                localStorage.setItem('token', res.data.idToken);
+                localStorage.setItem('userId', res.data.localId);
+                localStorage.setItem('expiresIn', expirationDate);
                 dispatch('storeUser', authData);
                 dispatch('setLogoutTime', res.data.expiresIn);
             })
@@ -56,6 +61,11 @@ export default new Vuex.Store({
             })
             .then(res => {
                 console.log(res)
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000);
+                localStorage.setItem('token', res.data.idToken);
+                localStorage.setItem('userId', res.data.localId);
+                localStorage.setItem('expiresIn', expirationDate);
                 commit('authUser', {
                     token: res.data.idToken,
                     userId: res.data.localId
@@ -65,8 +75,29 @@ export default new Vuex.Store({
             })
             .catch(error => console.log(error))
         },
+        tryAutoLogin({commit}) {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                return;
+            }
+            const expirationDate = localStorage.getItem('expiresIn');
+            const now = new Date();
+            if (now >= expirationDate) {
+                return;
+            }
+            const userId = localStorage.getItem('userId');
+            commit('authUser', {
+                //token: token,
+                //userId: userId
+                token,
+                userId
+            });
+        },
         logout({commit}) {
             commit('clearAuthData');
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            localStorage.removeItem('expiresIn');
             router.replace('/signin');
         },
         storeUser ({commit, state}, userData) {
