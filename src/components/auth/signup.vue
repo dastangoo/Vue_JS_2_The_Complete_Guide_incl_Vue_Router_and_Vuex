@@ -70,8 +70,6 @@ B
 </template>
 
 <script>
-  import axios from '../../axios-auth';
-
   export default {
     data () {
       return {
@@ -106,13 +104,7 @@ B
           terms: this.terms
         }
         console.log(formData)
-        axios.post('/accounts:signUp?key=AIzaSyAZGzlY3Pn7T6Yo7y7SMQn4JQY1d66Hl7Q', {
-            email: formData.email,
-            password: formData.password,
-            returnSecureToken: true
-        })
-          .then(res => console.log(res))
-          .catch(error => console.log(error))
+        this.$store.dispatch('signup', {email: formData.email, password: formData.password});
       }
     }
   }
